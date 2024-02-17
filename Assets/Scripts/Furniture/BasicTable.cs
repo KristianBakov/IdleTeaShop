@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicTable : ITable
+public class BasicTable : Table
 {
-    public void PrintType()
+    public override void PrintType()
     {
         Debug.Log("Basic Table");
     }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FunctionalTable : ITable
+public class FunctionalTable : Table
 {
-    public void PrintType()
+    public override void PrintType()
     {
         Debug.Log("Functional Table");
     }

@@ -4,13 +4,41 @@ using UnityEngine;
 
 public class BasicFurnitureFactory : FurnitureFactory
 {
-    public override ITable CreateTable()
+    public override Table CreateTable(GameObject prefab)
     {
-        return new BasicTable();
+        BasicTable table = new BasicTable
+        {
+            Go = Object.Instantiate(prefab)
+        };
+        return table;
     }
 
-    public override IChair CreateChair()
+    public override Chair CreateChair(GameObject prefab)
     {
-        return new BasicChair();
+        BasicChair chair = new BasicChair
+        {
+            Go = Object.Instantiate(prefab)
+        };
+        return chair;
+    }
+
+    public override Table CreateTable(Sprite sprite)
+    { 
+        BasicTable table = new BasicTable
+        {
+            Go = new GameObject()
+        };
+        table.Go.AddComponent<SpriteRenderer>().sprite = sprite;
+        return table; 
+    }
+
+    public override Chair CreateChair(Sprite sprite)
+    {
+        BasicChair chair = new BasicChair
+        {
+            Go = new GameObject()
+        };
+        chair.Go.AddComponent<SpriteRenderer>().sprite = sprite;
+        return chair;
     }
 }

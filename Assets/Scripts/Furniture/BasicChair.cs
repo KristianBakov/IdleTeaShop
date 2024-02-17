@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicChair : IChair
+public class BasicChair : Chair
 {
-    public void PrintType()
+    public override void PrintType()
     {
         Debug.Log("Basic Chair");
     }
