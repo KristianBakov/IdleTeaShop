@@ -16,13 +16,13 @@ public class TestScript : MonoBehaviour
         BasicFurnitureFactory basicFurnitureFactory = new BasicFurnitureFactory();
         foreach (var table in _tabls)
         {
-            IFurniture furniture = basicFurnitureFactory.CreateTable(table);
+            IFurniture furniture = basicFurnitureFactory.CreateTable(table, new Vector3(2,1,20));
             furniture.PrintType();
         }
         
         foreach (var table in _tablsSprites)
         {
-            IFurniture furniture = basicFurnitureFactory.CreateTable(table);
+            IFurniture furniture = basicFurnitureFactory.CreateTable(table, Vector3.zero, Quaternion.identity);
             furniture.PrintType();
         }
         
