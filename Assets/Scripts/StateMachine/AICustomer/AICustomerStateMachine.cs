@@ -19,11 +19,14 @@ public class AICustomerStateMachine : StateManager<AICustomerStateMachine.AICust
     private void Awake()
     {
         //Add all states to the dictionary in a loop
-        foreach (AICustomerState state in Enum.GetValues(typeof(AICustomerState)))
-        {
-           // States.Add(state, CreateState(state));
-        }
+        // foreach (AICustomerState state in Enum.GetValues(typeof(AICustomerState)))
+        // {
+        //     States.Add(state, CreateState(state));
+        // }
+        States.Add(AICustomerState.Idle, new AICustomerIdleState(AICustomerState.Idle));
+        States.Add(AICustomerState.Entering, new AICustomerEnteringState(AICustomerState.Entering));
         
         CurrentState = States[AICustomerState.Idle];
+        
     }
 }

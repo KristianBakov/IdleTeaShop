@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerEnteringState : BaseState<AICustomerStateMachine.AICustomerState>
 {
-    
-    public AICustomerIdleState(AICustomerStateMachine.AICustomerState key) : base(key)
+    public AICustomerEnteringState(AICustomerStateMachine.AICustomerState key) : base(key)
     {
     }
-
-    private bool switchState = false;
 
     public override void EnterState()
     {
@@ -23,13 +20,11 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
 
     public override void UpdateState()
     {
-        //Debug.Log("Updating state" + StateKey);
+       // Debug.Log("Updating state" + StateKey);
     }
 
     public override AICustomerStateMachine.AICustomerState GetNextState()
     {
-        return switchState
-            ? AICustomerStateMachine.AICustomerState.Entering
-            : AICustomerStateMachine.AICustomerState.Idle;
+        return AICustomerStateMachine.AICustomerState.Entering;
     }
 }
