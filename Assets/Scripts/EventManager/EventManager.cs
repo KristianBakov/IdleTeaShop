@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour {
-    private Dictionary<EventType, Action<Dictionary<string, object>>> eventDictionary;
+    private Dictionary<string, Action<Dictionary<string, object>>> eventDictionary;
 
     private static EventManager eventManager;
 
-    public static EventManager Instance {
+    public static EventManager instance {
         get {
             if (!eventManager) {
                 eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
@@ -27,39 +27,35 @@ public class EventManager : MonoBehaviour {
 
     void Init() {
         if (eventDictionary == null) {
-            eventDictionary = new Dictionary<EventType, Action<Dictionary<string, object>>>();
+            eventDictionary = new Dictionary<string, Action<Dictionary<string, object>>>();
         }
     }
 
-    public static void StartListening(EventType eventName, Action<Dictionary<string, object>> listener) {
+    public static void StartListening(string eventName, Action<Dictionary<string, object>> listener) {
         Action<Dictionary<string, object>> thisEvent;
-
-        if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
+    
+        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent += listener;
-            Instance.eventDictionary[eventName] = thisEvent;
+            instance.eventDictionary[eventName] = thisEvent;
         } else {
             thisEvent += listener;
-            Instance.eventDictionary.Add(eventName, thisEvent);
+            instance.eventDictionary.Add(eventName, thisEvent);
         }
     }
 
-    public static void StopListening(EventType eventName, Action<Dictionary<string, object>> listener) {
+    public static void StopListening(string eventName, Action<Dictionary<string, object>> listener) {
         if (eventManager == null) return;
         Action<Dictionary<string, object>> thisEvent;
-        if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
+        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent -= listener;
-            Instance.eventDictionary[eventName] = thisEvent;
+            instance.eventDictionary[eventName] = thisEvent;
         }
     }
 
-    public static void TriggerEvent(EventType eventName, Dictionary<string, object> message) {
+    public static void TriggerEvent(string eventName, Dictionary<string, object> message) {
         Action<Dictionary<string, object>> thisEvent = null;
-        if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
+        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
             thisEvent.Invoke(message);
         }
     }
-}
-
-public enum EventType {
-    TestingEvent
 }
