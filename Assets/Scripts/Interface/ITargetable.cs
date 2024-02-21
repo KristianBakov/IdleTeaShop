@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ITargetable
 {
-    public GameObject GoRef { get; set; }
-    public Sprite SpriteRef { get; set; }
+    public abstract GameObject GetGoRef();
+    public abstract Sprite GetSpriteRef();
     public void OnPressed();
 }

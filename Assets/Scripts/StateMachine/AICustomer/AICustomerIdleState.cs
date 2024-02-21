@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerState>
 {
-    public AICustomerIdleState(AICustomerStateMachine.AICustomerState key) : base(key)
-    { ;
+    public AICustomerIdleState(AICustomerStateMachine.AICustomerState key, AICustomerStateMachine stateManager) : base(key, stateManager)
+    { 
+        _customerStateManager = stateManager;
     }
 
-    private bool switchState = false;
+    private bool _switchState = false;
+    private readonly AICustomerStateMachine _customerStateManager;
 
     public override void EnterState()
     {
         Debug.Log("Entering state" + StateKey);
         //find the shortest path using path finding and start walking
+        _customerStateManager.Test();
     }
 
     public override void ExitState()
@@ -33,7 +36,7 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
 
     public override AICustomerStateMachine.AICustomerState GetNextState()
     {
-        return switchState
+        return _switchState
             ? AICustomerStateMachine.AICustomerState.Walking
             : AICustomerStateMachine.AICustomerState.Idle;
     }
