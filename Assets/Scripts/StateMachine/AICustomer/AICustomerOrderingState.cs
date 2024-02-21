@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerOrderingState : BaseState<AICustomerStateMachine.AICustomerState>
 {
-    
-    public AICustomerIdleState(AICustomerStateMachine.AICustomerState key) : base(key)
+    public AICustomerOrderingState(AICustomerStateMachine.AICustomerState key) : base(key)
     {
     }
 
@@ -24,18 +23,13 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
 
     public override void UpdateState()
     {
-        Debug.Log("I am idling");
-    }
-
-    private void PlayIdleAnimation()
-    {
-        
+        //Debug.Log("Updating state" + StateKey);
     }
 
     public override AICustomerStateMachine.AICustomerState GetNextState()
     {
         return switchState
             ? AICustomerStateMachine.AICustomerState.Walking
-            : AICustomerStateMachine.AICustomerState.Idle;
+            : AICustomerStateMachine.AICustomerState.Ordering;
     }
 }

@@ -8,25 +8,20 @@ public class AICustomerStateMachine : StateManager<AICustomerStateMachine.AICust
     public enum AICustomerState
     {
         Idle,
-        Entering,
+        Walking,
         Ordering,
         Drinking,
-        Leaving
     }
     
-    public float walkSpeed = 1.0f;
+    
 
     private void Awake()
     {
-        //Add all states to the dictionary in a loop
-        // foreach (AICustomerState state in Enum.GetValues(typeof(AICustomerState)))
-        // {
-        //     States.Add(state, CreateState(state));
-        // }
-        States.Add(AICustomerState.Idle, new AICustomerIdleState(AICustomerState.Idle));
-        States.Add(AICustomerState.Entering, new AICustomerEnteringState(AICustomerState.Entering));
+         States.Add(AICustomerState.Idle, new AICustomerIdleState(AICustomerState.Idle));
+         States.Add(AICustomerState.Walking, new AICustomerWalkingState(AICustomerState.Walking));
+         States.Add(AICustomerState.Ordering, new AICustomerOrderingState(AICustomerState.Ordering));
+         States.Add(AICustomerState.Drinking, new AICustomerDrinkingState(AICustomerState.Drinking));
         
         CurrentState = States[AICustomerState.Idle];
-        
     }
 }

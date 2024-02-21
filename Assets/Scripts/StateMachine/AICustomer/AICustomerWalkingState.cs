@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerEnteringState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerWalkingState : BaseState<AICustomerStateMachine.AICustomerState>
 {
-    public AICustomerEnteringState(AICustomerStateMachine.AICustomerState key) : base(key)
+    public AICustomerWalkingState(AICustomerStateMachine.AICustomerState key) : base(key)
     {
     }
 
@@ -25,6 +25,6 @@ public class AICustomerEnteringState : BaseState<AICustomerStateMachine.AICustom
 
     public override AICustomerStateMachine.AICustomerState GetNextState()
     {
-        return AICustomerStateMachine.AICustomerState.Entering;
+        return AICustomerStateMachine.AICustomerState.Walking;
     }
 }
