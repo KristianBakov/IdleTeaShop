@@ -13,7 +13,12 @@ public class AICustomerStateMachine : StateManager<AICustomerStateMachine.AICust
         Drinking,
     }
     
-    
+    //private IStateMachineContext<ITargetable> _context;
+
+    public void Test()
+    {
+        
+    }
 
     private void Awake()
     {
@@ -23,5 +28,6 @@ public class AICustomerStateMachine : StateManager<AICustomerStateMachine.AICust
          States.Add(AICustomerState.Drinking, new AICustomerDrinkingState(AICustomerState.Drinking));
         
         CurrentState = States[AICustomerState.Idle];
+        //_context.SetContextObject(GetComponent<ITargetable>());
     }
 }

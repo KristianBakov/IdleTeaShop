@@ -4,6 +4,7 @@ using UnityEngine;
 
 public interface ITargetable
 {
-    public GameObject PawnGameObject { get; protected set; }
-    public Sprite PawnSprite { get; protected set; }
+    public GameObject GoRef { get; set; }
+    public Sprite SpriteRef { get; set; }
+    public void OnPressed();
 }

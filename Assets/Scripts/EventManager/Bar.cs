@@ -13,14 +13,14 @@ public class Bar : MonoBehaviour
 {
     private int _numOfDrinks;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Adding a drink");
-            AddDrinks(new Dictionary<string, object> { { "amount", _numOfDrinks++ } });
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetMouseButtonDown(0))
+    //     {
+    //         //Debug.Log("Adding a drink");
+    //         AddDrinks(new Dictionary<string, object> { { "amount", _numOfDrinks++ } });
+    //     }
+    // }
 
     private void AddDrinks(Dictionary<string, object> message)
     {

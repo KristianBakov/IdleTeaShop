@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class StateManager<EState> : MonoBehaviour where EState : Enum
-{ 
+{
     protected Dictionary<EState, BaseState<EState>> States = new Dictionary<EState, BaseState<EState>>();
     protected BaseState<EState> CurrentState;
     protected bool IsTransitioningState = false;
@@ -26,8 +26,14 @@ public abstract class StateManager<EState> : MonoBehaviour where EState : Enum
             TransitionToState(nextStateKey);
         }
     }
+    
+    public void ChangeState(EState nextStateKey)
+    {
+        if (IsTransitioningState) return;
+        TransitionToState(nextStateKey);
+    }
 
-    public void TransitionToState(EState nextStateKey)
+    private void TransitionToState(EState nextStateKey)
     {
         IsTransitioningState = true;
         CurrentState.ExitState();

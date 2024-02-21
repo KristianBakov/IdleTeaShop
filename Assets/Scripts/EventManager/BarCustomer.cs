@@ -19,6 +19,6 @@ public class BarCustomer : MonoBehaviour
     private void SayThanks(Dictionary<string, object> message)
     {
         var amount = (int) message["amount"];
-        Debug.Log("Thanks for the " + amount + " drinks!");
+        //Debug.Log("Thanks for the " + amount + " drinks!");
     }
 }

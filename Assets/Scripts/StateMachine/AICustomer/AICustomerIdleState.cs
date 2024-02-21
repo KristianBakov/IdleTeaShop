@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerState>
 {
-    
     public AICustomerIdleState(AICustomerStateMachine.AICustomerState key) : base(key)
-    {
+    { ;
     }
 
     private bool switchState = false;
@@ -24,7 +23,7 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
 
     public override void UpdateState()
     {
-        Debug.Log("I am idling");
+//        Debug.Log("I am idling");
     }
 
     private void PlayIdleAnimation()
