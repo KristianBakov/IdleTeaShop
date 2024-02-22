@@ -14,6 +14,7 @@ public class AICustomerIdleState : BaseState<AICustomerState>
     {
         Debug.Log("Entering state" + StateKey);
         //find the shortest path using path finding and start walking
+        Debug.Log(StateKey);
         
     }
 
@@ -36,6 +37,6 @@ public class AICustomerIdleState : BaseState<AICustomerState>
     {
         return _switchState
             ? AICustomerState.Walking
-            : AICustomerState.Idle;
+            : StateKey;
     }
 }

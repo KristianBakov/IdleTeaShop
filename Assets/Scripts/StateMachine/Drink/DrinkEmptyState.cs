@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DrinkEmptyState : MonoBehaviour
+public class DrinkEmptyState : BaseState<DrinkState>
 {
-    // Start is called before the first frame update
-    void Start()
+    public DrinkEmptyState(DrinkState key, StateManager<DrinkState> stateManager) : base(key, stateManager)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void EnterState()
     {
-        
+        Debug.Log("DrinkEmptyState: EnterState");
+    }
+
+    public override void ExitState()
+    {
+        Debug.Log("DrinkEmptyState: ExitState");
+    }
+
+    public override void UpdateState()
+    {
+        Debug.Log("DrinkEmptyState: UpdateState");
+    }
+
+    public override DrinkState GetNextState()
+    {
+        return StateKey;
     }
 }
