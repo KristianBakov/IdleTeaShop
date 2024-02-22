@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerOrderingState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerOrderingState : BaseState<AICustomerState>
 {
-    public AICustomerOrderingState(AICustomerStateMachine.AICustomerState key) : base(key)
+    public AICustomerOrderingState(AICustomerState key) : base(key)
     {
     }
 
@@ -26,10 +26,10 @@ public class AICustomerOrderingState : BaseState<AICustomerStateMachine.AICustom
         //Debug.Log("Updating state" + StateKey);
     }
 
-    public override AICustomerStateMachine.AICustomerState GetNextState()
+    public override AICustomerState GetNextState()
     {
         return switchState
-            ? AICustomerStateMachine.AICustomerState.Walking
-            : AICustomerStateMachine.AICustomerState.Ordering;
+            ? AICustomerState.Walking
+            : AICustomerState.Ordering;
     }
 }

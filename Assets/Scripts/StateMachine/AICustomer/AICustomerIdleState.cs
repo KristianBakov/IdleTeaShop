@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerIdleState : BaseState<AICustomerState>
 {
-    public AICustomerIdleState(AICustomerStateMachine.AICustomerState key, AICustomerStateMachine stateManager) : base(key, stateManager)
+    public AICustomerIdleState(AICustomerState key, AICustomerStateMachine stateManager) : base(key, stateManager)
     { 
-        _customerStateManager = stateManager;
+        _customerStateManager = stateManager as AICustomerStateMachine;
     }
 
     private bool _switchState = false;
@@ -16,7 +14,7 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
     {
         Debug.Log("Entering state" + StateKey);
         //find the shortest path using path finding and start walking
-        _customerStateManager.Test();
+        
     }
 
     public override void ExitState()
@@ -26,18 +24,18 @@ public class AICustomerIdleState : BaseState<AICustomerStateMachine.AICustomerSt
 
     public override void UpdateState()
     {
-//        Debug.Log("I am idling");
+        PlayIdleAnimation();
     }
 
     private void PlayIdleAnimation()
     {
-        
+        //play the animation here
     }
 
-    public override AICustomerStateMachine.AICustomerState GetNextState()
+    public override AICustomerState GetNextState()
     {
         return _switchState
-            ? AICustomerStateMachine.AICustomerState.Walking
-            : AICustomerStateMachine.AICustomerState.Idle;
+            ? AICustomerState.Walking
+            : AICustomerState.Idle;
     }
 }

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AICustomerDrinkingState : BaseState<AICustomerStateMachine.AICustomerState>
+public class AICustomerDrinkingState : BaseState<AICustomerState>
 {
-    public AICustomerDrinkingState(AICustomerStateMachine.AICustomerState key) : base(key)
+    public AICustomerDrinkingState(AICustomerState key) : base(key)
     {
     }
 
@@ -26,10 +26,10 @@ public class AICustomerDrinkingState : BaseState<AICustomerStateMachine.AICustom
         //Debug.Log("Updating state" + StateKey);
     }
 
-    public override AICustomerStateMachine.AICustomerState GetNextState()
+    public override AICustomerState GetNextState()
     {
         return switchState
-            ? AICustomerStateMachine.AICustomerState.Walking
-            : AICustomerStateMachine.AICustomerState.Drinking;
+            ? AICustomerState.Walking
+            : AICustomerState.Drinking;
     }
 }
