@@ -735,6 +735,8 @@ GameObject:
   - component: {fileID: 1809654412}
   - component: {fileID: 1809654411}
   - component: {fileID: 1809654413}
+  - component: {fileID: 1809654415}
+  - component: {fileID: 1809654414}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -785,6 +787,39 @@ MonoBehaviour:
   floorTilemap: {fileID: 584907590}
   floorTile: {fileID: 11400000, guid: c7a8d0dda50df5d4db60b6632bb5eeea, type: 2}
   mainCamera: {fileID: 519420031}
+--- !u!114 &1809654414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809654410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfd650215526514bbefbc69e89f3961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SaveFilename: idleteashopsave.dat
+  m_Debug: 1
+--- !u!114 &1809654415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809654410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91efe02b8a58c6d4ca83086ca5b6c7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_GameData:
+    bucks: 500
+    diamonds: 50
+    drinkVouchers: 2
+    username: GUEST_123
+    musicVolume: 80
+    sfxVolume: 80
 --- !u!1001 &2135942347
 PrefabInstance:
   m_ObjectHideFlags: 0

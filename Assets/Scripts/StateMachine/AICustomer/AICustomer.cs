@@ -1,42 +1,21 @@
+using System;
 using UnityEngine;
 
-public class AICustomer : MonoBehaviour, ITargetable
+public class AICustomer : ClickableObject
 {
-    private GameObject _goRef;
-    private Sprite _spriteRef;
-    
-
-    private void Awake()
+    private void OnEnable()
     {
-        _goRef = gameObject;
-        _spriteRef = GetComponent<SpriteRenderer>().sprite;
+        AddListener(CustomerPressed);
     }
 
-    private void OnMouseDown()
+    private void OnDisable()
     {
-        OnPressed();
+        RemoveListener(CustomerPressed);
     }
 
-    public GameObject GetGoRef()
+    private void CustomerPressed()
     {
-        if(_goRef == null)
-        {
-            _goRef = gameObject;
-        }
-        return _goRef;
-    }
-
-    public Sprite GetSpriteRef()
-    {
-        if(_spriteRef == null)
-        {
-            _spriteRef = GetComponent<SpriteRenderer>().sprite;
-        }
-        return _spriteRef;
-    }
-
-    public void OnPressed()
-    {
-        Debug.Log("Pressed on " + GetGoRef().name + " with sprite " + GetSpriteRef().name + "!");
+        //TODO: Show customer details widget
+        Debug.Log("I am pressed" + gameObject.name);
     }
 }

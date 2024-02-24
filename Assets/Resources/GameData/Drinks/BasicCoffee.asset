@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5411e175759f71647adb0f8b0e7f18f1, type: 3}
   m_Name: BasicCoffee
   m_EditorClassIdentifier: 
-  drinkName: 
-  rarity: 0
-  cost: 0
-  timeToMake: 0
-  timeToDrink: 0
-  happinessMultiplier: 0
-  sprite: {fileID: 0}
+  drinkName: coffee
+  rarity: 1
+  cost: 10
+  timeToMake: 1
+  timeToDrink: 1
+  happinessMultiplier: 1
+  sprite: {fileID: 21300000, guid: 8fd9b5b26553ff54e91ffef6feec254e, type: 3}
+  emptySprite: {fileID: 21300000, guid: 2dd38611a827f8c4c87050a3d3274a3d, type: 3}
