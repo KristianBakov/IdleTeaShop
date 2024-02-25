@@ -13,13 +13,6 @@ public class AICustomerStateMachine : StateManager<AICustomerState>
     private Transform target;
     [SerializeField] 
     private Animator animator;
-    
-    // private ITargetable _context;
-    //
-    // protected ITargetable GetContext()
-    // {
-    //     return _context ??= GetComponent<ITargetable>();
-    // }
 
     private void Awake()
     {

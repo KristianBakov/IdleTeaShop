@@ -10,6 +10,21 @@ public enum DrinkState
 }
 public class DrinkStateMachine : StateManager<DrinkState>
 {
+    protected string name;
+    protected Rarity rarity;
+    public int cost;
+    public float timeToMake;
+    public float timeToDrink;
+    public float happinessMultiplier;
+    public Sprite sprite;
+    public Sprite emptySprite;
+    DrinkStateMachine(string nameIn, Sprite spriteIn, Rarity rarityIn)
+    {
+        name = nameIn;
+        sprite = spriteIn;
+        
+    }
+    
     private void Awake()
     {
         States.Add(DrinkState.Preparing, new DrinkPreparingState(DrinkState.Preparing, this));
