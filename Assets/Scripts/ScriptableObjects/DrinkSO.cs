@@ -21,5 +21,4 @@ public class DrinkSO : ScriptableObject
     public float timeToDrink;
     public float happinessMultiplier;
     public Sprite sprite;
-    public Sprite emptySprite;
 }

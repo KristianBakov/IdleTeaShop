@@ -574,8 +574,8 @@ Transform:
   m_GameObject: {fileID: 730175149}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.56706715, y: -0.08362836, z: 724.75214}
-  m_LocalScale: {x: 0.34535524, y: 0.34535524, z: 0.34535524}
+  m_LocalPosition: {x: -4.64, y: -1.21, z: 724.75214}
+  m_LocalScale: {x: 0.23302154, y: 0.23302154, z: 0.23302154}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -813,7 +813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91efe02b8a58c6d4ca83086ca5b6c7b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GameData:
+  gameData:
     bucks: 500
     diamonds: 50
     drinkVouchers: 2
