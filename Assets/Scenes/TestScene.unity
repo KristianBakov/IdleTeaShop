@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5e13378cc302849a92c22e9028e645, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Document: {fileID: 0}
+  m_Document: {fileID: 1952981523}
 --- !u!1 &230243793
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: 04b05e51d87b8624f90ba295267f039b, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: f5fa3128ca2657a4ebc6b677ae91a33e, type: 3}
-  m_SortingOrder: 0
+  m_SortingOrder: 9999
 --- !u!4 &1952981524
 Transform:
   m_ObjectHideFlags: 0

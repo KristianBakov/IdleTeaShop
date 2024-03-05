@@ -1,8 +1,18 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="HomeScreen" src="project://database/Assets/UI/Uxml/HomeScreen.uxml?fileID=9197481963319205126&amp;guid=638b043622f706e47bac7b507d5bdacd&amp;type=3#HomeScreen" />
+    <ui:Template name="SettingsScreen" src="project://database/Assets/UI/Uxml/SettingsScreen.uxml?fileID=9197481963319205126&amp;guid=3eae967e59b68764ea9562571ee7ce9d&amp;type=3#SettingsScreen" />
+    <ui:Template name="ShopScreen" src="project://database/Assets/UI/Uxml/ShopScreen.uxml?fileID=9197481963319205126&amp;guid=8eec067780c72ef4796fcf357121ff27&amp;type=3#ShopScreen" />
+    <ui:Template name="MenuBar" src="project://database/Assets/UI/Uxml/MenuBar.uxml?fileID=9197481963319205126&amp;guid=f1c79194ffece094894cb2c056834589&amp;type=3#MenuBar" />
     <Style src="project://database/Assets/UI/Uss/Base/Common.uss?fileID=7433441132597879392&amp;guid=2e7a9bff4e2f1f341b7ea7e95911fa22&amp;type=3#Common" />
     <ui:VisualElement name="background-cursor" style="flex-grow: 1; display: flex; height: 100%; width: 100%; position: absolute; cursor: url(&apos;flex&apos;);" />
     <ui:VisualElement name="background-graphic" style="flex-grow: 1; -unity-background-scale-mode: scale-and-crop;" />
-    <ui:VisualElement name="overlay-vfx" style="flex-grow: 1;">
-        <ui:VisualElement name="fps-counter" class="fps-counter" style="flex-grow: 1;" />
+    <ui:VisualElement name="screens" style="flex-grow: 0; position: absolute; width: 100%; height: 100%;">
+        <ui:Instance template="HomeScreen" name="HomeScreen" style="position: absolute; width: 100%; height: 100%;" />
+        <ui:Instance template="SettingsScreen" name="SettingsScreen" style="position: absolute; width: 100%; height: 100%;" />
+        <ui:Instance template="ShopScreen" name="ShopScreen" style="width: 100%; height: 100%; position: absolute;" />
+        <ui:Instance template="MenuBar" name="MenuBar" style="width: 100%; height: 100%; position: absolute;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="overlay-vfx" picking-mode="Ignore" style="flex-grow: 1;">
+        <ui:Label tabindex="-1" text="FPS:" parse-escape-sequences="true" display-tooltip-when-elided="true" name="fps-counter" picking-mode="Ignore" class="fps-counter" />
     </ui:VisualElement>
 </ui:UXML>
