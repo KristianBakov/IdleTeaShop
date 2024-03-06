@@ -1,95 +1,75 @@
-using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-/// <summary>
-/// Simple fps counter.
-/// </summary>
-///
-namespace UIToolkitDemo
+public class FpsCounter : MonoBehaviour
 {
+    private const int TargetFrameRate = 60; // 60 for mobile platforms, -1 for fast as possible
+    private const int BufferSize = 50; // Number of frames to sample
 
-    public class FpsCounter : MonoBehaviour
+    [SerializeField] private UIDocument document;
+    [SerializeField] private bool isEnabled;
+
+    private float _fpsValue;
+    private int _currentIndex;
+    private float[] _deltaTimeBuffer;
+
+    private Label _fpsLabel;
+
+    public float FpsValue => _fpsValue;
+
+    // MonoBehaviour event messages
+    private void Awake()
     {
-        public const int k_TargetFrameRate = 60; // 60 for mobile platforms, -1 for fast as possible
-        public const int k_BufferSize = 50;  // Number of frames to sample
+        _deltaTimeBuffer = new float[BufferSize];
+        Application.targetFrameRate = TargetFrameRate;
+    }
 
-        [SerializeField] UIDocument m_Document;
+    private void OnEnable()
+    {
+        //SettingsEvents.FpsCounterToggled += OnFpsCounterToggled;
+        //SettingsEvents.TargetFrameRateSet += OnTargetFrameRateSet;
 
-        float m_FpsValue;
-        int m_CurrentIndex;
-        float[] m_DeltaTimeBuffer;
+        var root = document.rootVisualElement;
+        _fpsLabel = root.Q<Label>("fps-counter");
 
-        Label m_FpsLabel;
-        bool m_IsEnabled;
+        if (_fpsLabel != null) return;
+        Debug.LogWarning("[FPSCounter]: Display label is null.");
+    }
 
-        public float FpsValue => m_FpsValue;
+    void OnDisable()
+    {
+        //SettingsEvents.FpsCounterToggled -= OnFpsCounterToggled;
+        //SettingsEvents.TargetFrameRateSet -= OnTargetFrameRateSet;
+    }
 
-        // MonoBehaviour event messages
-        void Awake()
-        {
-            m_DeltaTimeBuffer = new float[k_BufferSize];
-            Application.targetFrameRate = k_TargetFrameRate;
-        }
+    private void Update()
+    {
+        if (!isEnabled) return;
+        _deltaTimeBuffer[_currentIndex] = Time.deltaTime;
+        _currentIndex = (_currentIndex + 1) % _deltaTimeBuffer.Length;
+        _fpsValue = Mathf.RoundToInt(CalculateFps());
 
-        void OnEnable()
-        {
-            //SettingsEvents.FpsCounterToggled += OnFpsCounterToggled;
-            //SettingsEvents.TargetFrameRateSet += OnTargetFrameRateSet;
+        _fpsLabel.text = $"FPS: {_fpsValue}";
+    }
 
-            var root = m_Document.rootVisualElement;
+    // Methods
+    private float CalculateFps()
+    {
+        float totalTime = _deltaTimeBuffer.Sum();
+        return _deltaTimeBuffer.Length / totalTime;
+    }
 
-            m_FpsLabel = root.Q<Label>("fps-counter");
+    // Event-handling methods
+    private void OnFpsCounterToggled(bool state)
+    {
+        isEnabled = state;
+        _fpsLabel.style.visibility = (state) ? Visibility.Visible : Visibility.Hidden;
+    }
 
-            if (m_FpsLabel == null)
-            {
-                Debug.LogWarning("[FPSCounter]: Display label is null.");
-                return;
-            }
-        }
-
-        void OnDisable()
-        {
-            //SettingsEvents.FpsCounterToggled -= OnFpsCounterToggled;
-            //SettingsEvents.TargetFrameRateSet -= OnTargetFrameRateSet;
-        }
-
-        void Update()
-        {
-            if (m_IsEnabled)
-            {
-                m_DeltaTimeBuffer[m_CurrentIndex] = Time.deltaTime;
-                m_CurrentIndex = (m_CurrentIndex + 1) % m_DeltaTimeBuffer.Length;
-                m_FpsValue = Mathf.RoundToInt(CalculateFps());
-
-                m_FpsLabel.text = $"FPS: {m_FpsValue}";
-            }
-
-        }
-
-        // Methods
-        float CalculateFps()
-        {
-            float totalTime = 0f;
-            foreach (float deltaTime in m_DeltaTimeBuffer)
-            {
-                totalTime += deltaTime;
-            }
-
-            return m_DeltaTimeBuffer.Length / totalTime;
-        }
-
-        // Event-handling methods
-        void OnFpsCounterToggled(bool state)
-        {
-            m_IsEnabled = state;
-            m_FpsLabel.style.visibility = (state) ? Visibility.Visible : Visibility.Hidden;
-        }
-
-        // Set the target frame rate:  -1 = as fast as possible (PC) or 60/30 fps (mobile) 
-        void OnTargetFrameRateSet(int newFrameRate)
-        {
-            Application.targetFrameRate = newFrameRate;
-        }
+    // Set the target frame rate:  -1 = as fast as possible (PC) or 60/30 fps (mobile) 
+    private void OnTargetFrameRateSet(int newFrameRate)
+    {
+        Application.targetFrameRate = newFrameRate;
     }
 }

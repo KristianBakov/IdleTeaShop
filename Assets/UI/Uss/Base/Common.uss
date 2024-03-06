@@ -1,4 +1,5 @@
 :root {
+    -unity-font-definition: url("/Assets/UI/Fonts/ChelaOne-Regular SDF.asset");
     cursor: url("/Assets/UI/Textures/Cursors/Cursor_A.png");
 }
 
