@@ -17,15 +17,23 @@ public class DrinkStateMachine : StateManager<DrinkState>
     public float timeToDrink;
     public float happinessMultiplier;
     public Sprite sprite;
+    
+    private SpriteRenderer _spriteRenderer;
     DrinkStateMachine(string drinkNameIn, Sprite spriteIn, Rarity rarityIn)
     {
         drinkName = drinkNameIn;
         sprite = spriteIn;
-        
     }
+    
+    
     
     private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        if(_spriteRenderer) _spriteRenderer.sprite = sprite;
+        //TODO: Remove this resize here
+        transform.localScale = new Vector2(1f, 0.5f);
+        
         States = new Dictionary<DrinkState, BaseState<DrinkState>>
         {
             { DrinkState.Preparing, new DrinkPreparingState(DrinkState.Preparing, this) },

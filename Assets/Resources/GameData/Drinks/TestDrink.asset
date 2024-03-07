@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: TestDrink
   m_EditorClassIdentifier: Assembly-CSharp::DrinkSO
-  drinkName: 
-  rarity: 0
-  cost: 0
-  timeToMake: 0
-  timeToDrink: 0
-  happinessMultiplier: 0
-  sprite: {fileID: 0}
+  drinkName: Coffee
+  rarity: 5
+  cost: 10
+  timeToMake: 10
+  timeToDrink: 10
+  happinessMultiplier: 1
+  sprite: {fileID: 21300000, guid: 8fd9b5b26553ff54e91ffef6feec254e, type: 3}
