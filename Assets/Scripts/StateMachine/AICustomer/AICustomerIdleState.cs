@@ -12,15 +12,14 @@ public class AICustomerIdleState : BaseState<AICustomerState>
 
     public override void EnterState()
     {
-        Debug.Log("Entering state" + StateKey);
         //find the shortest path using path finding and start walking
-        Debug.Log(StateKey);
+        //Debug.Log(StateKey);
         
     }
 
     public override void ExitState()
     {
-        Debug.Log("Exiting state" + StateKey);
+        Debug.Log("Customer is exiting state" + StateKey);
     }
 
     public override void UpdateState()

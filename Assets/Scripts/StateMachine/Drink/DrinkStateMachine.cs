@@ -10,26 +10,28 @@ public enum DrinkState
 }
 public class DrinkStateMachine : StateManager<DrinkState>
 {
-    protected string name;
+    protected string drinkName;
     protected Rarity rarity;
     public int cost;
     public float timeToMake;
     public float timeToDrink;
     public float happinessMultiplier;
     public Sprite sprite;
-    public Sprite emptySprite;
-    DrinkStateMachine(string nameIn, Sprite spriteIn, Rarity rarityIn)
+    DrinkStateMachine(string drinkNameIn, Sprite spriteIn, Rarity rarityIn)
     {
-        name = nameIn;
+        drinkName = drinkNameIn;
         sprite = spriteIn;
         
     }
     
     private void Awake()
     {
-        States.Add(DrinkState.Preparing, new DrinkPreparingState(DrinkState.Preparing, this));
-        States.Add(DrinkState.Full, new DrinkFullState(DrinkState.Full, this));
-        States.Add(DrinkState.Empty, new DrinkEmptyState(DrinkState.Empty, this));
+        States = new Dictionary<DrinkState, BaseState<DrinkState>>
+        {
+            { DrinkState.Preparing, new DrinkPreparingState(DrinkState.Preparing, this) },
+            { DrinkState.Full, new DrinkFullState(DrinkState.Full, this) },
+            { DrinkState.Empty, new DrinkEmptyState(DrinkState.Empty, this) }
+        };
         CurrentState = States[DrinkState.Preparing];
     }
 }

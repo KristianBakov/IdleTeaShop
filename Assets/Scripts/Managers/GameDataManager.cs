@@ -34,7 +34,7 @@ public class GameDataManager : MonoBehaviour
         _isGameDataInitialized = true;
         
         //TODO: Show welcome message
-        Debug.Log("Hey " + GameData.username);
+        Debug.Log("Welcome back " + GameData.username);
     }
     
     
