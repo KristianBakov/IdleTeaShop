@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5711781148485888441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4470838436889634746}
+  - component: {fileID: 271395813828647726}
+  m_Layer: 0
+  m_Name: P_AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4470838436889634746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711781148485888441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8243406, y: 1.5753504, z: 780.44446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &271395813828647726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5711781148485888441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cbc5fdaf40a61b44ba9b15a919215a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DestroyOnLoad: 1
+  MainAudioMixer: {fileID: 24100000, guid: 89b85c42472ed8b48bbb722ac22469f8, type: 2}
+  DefaultButtonSound: {fileID: 8300000, guid: fe3c518764f9a7d4d909adb010d19f09, type: 3}
+  AltButtonSound: {fileID: 8300000, guid: 835f3a91ff3dedf42839756df7d3cdb1, type: 3}
+  TransactionSound: {fileID: 8300000, guid: fb5e011d7fc95954abf0b7c360c89d63, type: 3}
+  DefaultWarningSound: {fileID: 8300000, guid: 5d71012d490048d44b76fcfefafca197, type: 3}
+  StartPreparingDrinkSound: {fileID: 8300000, guid: c3d52556eb7f5c345b50d39732271d38, type: 3}
+  FinishPreparingDrinkSound: {fileID: 8300000, guid: f65cf3481cb39ed4083cdb2b4699011f, type: 3}
