@@ -1,6 +1,6 @@
 using System;
 
-public static class MainMenuUIEvents
+public class MainMenuUIEvents : MonoSingleton<MainMenuUIEvents>
 {
     public static Action HomeScreenShown;
     public static Action SettingsScreenShown;
