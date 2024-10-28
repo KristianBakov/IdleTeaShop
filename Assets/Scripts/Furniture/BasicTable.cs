@@ -1,9 +1,17 @@
 using UnityEngine;
 
-public class BasicTable : Table
+public class BasicTable : MonoBehaviour, ITable
 {
-    public override void PrintType()
+    public int ID { get; set; }
+    public bool IsEmpty { get; set; }
+
+    public void PrintType()
     {
         Debug.Log("Basic Table");
+    }
+
+    public Vector2 GetWorldPosition()
+    {
+        return transform.position;
     }
 }

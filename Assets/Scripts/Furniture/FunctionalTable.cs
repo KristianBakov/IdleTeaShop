@@ -1,9 +1,17 @@
 using UnityEngine;
 
-public class FunctionalTable : Table
+public class FunctionalTable : MonoBehaviour, ITable
 {
-    public override void PrintType()
+    public int ID { get; set; }
+    public bool IsEmpty { get; set; }
+
+    public void PrintType()
     {
         Debug.Log("Functional Table");
+    }
+
+    public Vector2 GetWorldPosition()
+    {
+        return transform.position;
     }
 }

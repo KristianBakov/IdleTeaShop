@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BasicFurnitureFactory : FurnitureFactory
 {
-    public override Table CreateTable(GameObject prefab, Vector3 position = default, Quaternion rotation = default)
+    public override ITable CreateTable(GameObject prefab, Vector3 position = default, Quaternion rotation = default)
     {
         BasicTable table = new BasicTable
         {
@@ -20,7 +20,7 @@ public class BasicFurnitureFactory : FurnitureFactory
         return chair;
     }
 
-    public override Table CreateTable(Sprite sprite, Vector3 position = default, Quaternion rotation = default)
+    public override ITable CreateTable(Sprite sprite, Vector3 position = default, Quaternion rotation = default)
     { 
         BasicTable table = new BasicTable
         {
