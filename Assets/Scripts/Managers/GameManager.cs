@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public List<ITable> tables;
+    public List<Table> tables;
 
     private void Start()
     {
@@ -14,10 +14,10 @@ public class GameManager : MonoSingleton<GameManager>
         List<GameObject> tempTableGos = new List<GameObject>();
         tempTableGos.AddRange(GameObject.FindGameObjectsWithTag("Table"));
 
-        tables = new List<ITable>();
+        tables = new List<Table>();
         foreach (var tableGo in tempTableGos)
         {
-            tables.Add(tableGo.GetComponent<ITable>());
+            tables.Add(tableGo.GetComponent<Table>());
         }
     }
 

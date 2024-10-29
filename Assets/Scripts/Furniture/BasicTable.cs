@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class BasicTable : MonoBehaviour, ITable
+public class BasicTable : Table
 {
-    public int ID { get; set; }
-    public bool IsEmpty { get; set; }
-
-    public void PrintType()
+    public override void PrintType()
     {
         Debug.Log("Basic Table");
     }
 
-    public Vector2 GetWorldPosition()
+    public override Vector2 GetWorldPosition()
     {
-        return transform.position;
+        return Go.transform.position;
     }
 }
