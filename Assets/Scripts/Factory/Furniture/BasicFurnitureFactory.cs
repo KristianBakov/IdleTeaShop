@@ -8,6 +8,8 @@ public class BasicFurnitureFactory : FurnitureFactory
         {
             Go = Object.Instantiate(prefab, position, rotation)
         };
+        TableReference tableRef = table.Go.AddComponent<TableReference>();
+        tableRef.TableInstance = table;
         return table;
     }
 

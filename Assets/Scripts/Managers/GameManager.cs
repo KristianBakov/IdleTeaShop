@@ -17,7 +17,11 @@ public class GameManager : MonoSingleton<GameManager>
         tables = new List<Table>();
         foreach (var tableGo in tempTableGos)
         {
-            tables.Add(tableGo.GetComponent<Table>());
+            var tableRef = tableGo.GetComponent<TableReference>();
+            if (tableRef != null)
+            {
+                tables.Add(tableRef.TableInstance);
+            }
         }
     }
 

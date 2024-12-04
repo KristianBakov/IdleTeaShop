@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class EventManager : MonoBehaviour {
     private Dictionary<string, Action<Dictionary<string, object>>> eventDictionary;
@@ -10,7 +11,7 @@ public class EventManager : MonoBehaviour {
     public static EventManager instance {
         get {
             if (!eventManager) {
-                eventManager = FindObjectOfType(typeof(EventManager)) as EventManager;
+                eventManager = FindFirstObjectByType(typeof(EventManager)) as EventManager;
 
                 if (!eventManager) {
                     Debug.LogError("There needs to be one active EventManager script on a GameObject in your scene.");
